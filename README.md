@@ -18,7 +18,7 @@ install requiremqnts
 run server
 `
 
-### Run tests
+### Run tests:
 1
 `
 cd project
