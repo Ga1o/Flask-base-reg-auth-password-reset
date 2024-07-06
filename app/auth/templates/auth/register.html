@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <h1>Register</h1>
+    <form method="POST" class="col-3">
+        {{ form.hidden_tag() }}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <label for="username">Name</label><br>
+        {{ form.username(size=30) }}<br><br>
+
+        <label for="user_email">Email</label><br>
+        {{ form.user_email(size=30) }}<br><br>
+
+        <label for="password">Password</label><br>
+        {{ form.password(size=30) }}<br><br>
+
+        <label for="confirm_password">Repeat</label><br>
+        {{ form.confirm_password(size=30) }}<br><br>
+
+        <input type="submit" value="Register" class="btn btn-outline-success">
+    </form>
+    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-dark mt-2">Login</a>
+
+{% endblock %}

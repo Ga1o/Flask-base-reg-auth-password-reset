@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Login</h1>
+<form method="POST" class="col-2">
+    {{ form.hidden_tag() }}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <label for="user_email">Email</label><br>
+    {{ form.user_email(size=30) }}<br><br>
+
+    <label for="password">Password</label><br>
+    {{ form.password(size=30) }}<br><br>
+
+    <input type="submit" value="Login" class="btn btn-outline-success w-100">
+</form>
+<a href="{{ url_for('auth.register') }}" class="btn btn-outline-dark mt-2">Register</a>
+<a href="{{ url_for('auth.forgot_password') }}" class="btn btn-outline-dark mt-2">Forgot password</a>
+
+{% endblock %}
