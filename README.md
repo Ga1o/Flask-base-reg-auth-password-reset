@@ -17,3 +17,17 @@ install requiremqnts
 `
 run server
 `
+
+### Run tests
+1
+`
+cd project
+`\
+2
+`
+python -m unittest discover -s app/main/tests
+`\
+3
+`
+python -m unittest discover -s app/auth/tests
+`

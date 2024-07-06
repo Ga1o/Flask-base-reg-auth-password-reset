@@ -15,6 +15,10 @@ class MainBlueprintTestCase(unittest.TestCase):
         response = self.client.get('/about')
         self.assertEqual(response.status_code, 200)
 
+    def test_contacts(self):
+        response = self.client.get('/contacts')
+        self.assertEqual(response.status_code, 200)
+
 
 if __name__ == '__main__':
     unittest.main()
